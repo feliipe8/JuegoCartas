@@ -6,6 +6,7 @@
 package juegocartas;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,6 +49,11 @@ public class FrmJuego extends javax.swing.JFrame {
         });
 
         BtnVerificar.setText("Verificar");
+        BtnVerificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVerificarActionPerformed(evt);
+            }
+        });
 
         pnlJugador1.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -113,6 +119,20 @@ public class FrmJuego extends javax.swing.JFrame {
         jugador1.mostrar (pnlJugador1);
         jugador2.mostrar (pnlJugador2);
     }//GEN-LAST:event_BtnRepartirActionPerformed
+
+    private void BtnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerificarActionPerformed
+        int pestaña = tpJugadores.getSelectedIndex();
+        String mensaje = "";
+        switch (pestaña){
+            case 0:
+                mensaje=jugador1.getGrupos();
+                break;
+            case 1:
+                mensaje=jugador2.getGrupos();
+                break;
+        }
+        JOptionPane.showMessageDialog(null, mensaje);
+    }//GEN-LAST:event_BtnVerificarActionPerformed
 
     /**
      * @param args the command line arguments
